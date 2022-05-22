@@ -1,16 +1,10 @@
-
+import { CartWidget } from '../CartWidget/CartWidget';
+import './Navbar.scss';
 
 export const Navbar = () => {
-    const bgColors = { "Default": "#81b71a",
-    "Blue": "#00B1E1",
-    "Cyan": "#37BC9B",
-    "Green": "#8CC152",
-    "Red": "#E9573F",
-    "Yellow": "#F6BB42",
-    "Celeste":"#e3f2fd",
-};
+
     return <header>
-        <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: bgColors.Celeste}}>
+        <nav className="navbar navbar-expand-lg navbar-dark bgColors">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">e-Commerce</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,9 +32,12 @@ export const Navbar = () => {
                             <a className="nav-link">Contáctenos</a>
                         </li>
                     </ul>
+                    <div className="d-flex">
+                        <CartWidget/>
+                    </div>
                     <form className="d-flex">
-                        <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
-                            <button className="btn btn-outline-success" type="submit">Buscar</button>
+                        <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
+                        <button className="btn btn-outline-warning" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
