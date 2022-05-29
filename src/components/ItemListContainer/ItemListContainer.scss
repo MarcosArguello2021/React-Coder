@@ -1,6 +1,14 @@
-.containerList{
+.itemListContainer{
     text-align: center;
-    .greeting{
-        font-size:2rem;
+
+    .title{
+        padding: 0.875em;
+    }
+    .containerList{
+        display:grid;
+        box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+        border-radius: 10px;
+        text-align: center;
     }
 }
+

@@ -1,0 +1,19 @@
+.item{
+    border: solid 1px black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    .img-responsive{
+        width: 100%;
+        padding: 1em;
+    }
+    .nombre{
+        padding: 0.5em;
+        font-size: 1.5em;
+        color: rgb(24, 24, 65);
+    }
+    .variedad{
+        padding: 0.5em;
+        font-size: 1.2em;
+        color: rgb(24, 24, 65);
+    }
+}
