@@ -20,7 +20,7 @@ export const ItemCount = ({ max = 12, min = 0}) => {
 
     return (
         <section>
-            <div className="contador container my-4 d-flex justify-content-lg-evenly">
+            <div className="contador container my-4 d-flex">
                 <div>
                     <button {...configRestar}>
                         <BsDashLg />
@@ -30,7 +30,7 @@ export const ItemCount = ({ max = 12, min = 0}) => {
                         <BsPlusLg />
                     </button>
                 </div>
-                <button type="button" className="btn btn-outline-light">Agregar Carrito</button>
+                <button type="button" className="btn btn-outline-light">Agregar</button>
             </div>
 
         </section>

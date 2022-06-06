@@ -4,15 +4,13 @@ import './ItemList.scss'
 const ItemList = ({ items }) => {
 
     return (
-        <div className="items">
-            
+        <div className="items">       
             <div className="itemList">
                 {
-                    items.map((item) => <Item key={item.id} item={item} />)
+                    items.map((item, index) => <Item key={index} item={item}/>)
                 }
             </div>
         </div>
-
     )
 }
 

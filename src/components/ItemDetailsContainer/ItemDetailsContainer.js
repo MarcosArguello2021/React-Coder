@@ -1,37 +1,37 @@
 import { useEffect, useState } from 'react'
 import { pedirDatos } from '../../mock/pedirDatos'
 import { useParams } from 'react-router-dom'
-import ItemList from "../ItemList/ItemList"
-import './ItemListContainer.scss'
+import ItemDetail from "../ItemDetail/ItemDetail"
+import './ItemDetailsContainer.scss'
 
-export const ItemListContainer = () => {
 
-    const [items, setItems] = useState([])
+export const ItemDetailsContainer = () => {
+
+    const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(true)
-    const { categoryId } = useParams()
+
+    const { itemId } = useParams()
 
     useEffect(() => {
         setLoading(true)
 
         pedirDatos()
             .then((resp) => {
-                if (!categoryId) {
-                    setItems(resp)
-                } else {
-                    setItems(resp.filter((item) => item.variedad === categoryId))
-                }
+                setItem( resp.find((item) => item.id === Number(itemId)) )
             })
+
             .catch((error) => {
                 console.log("Error", error)
             })
             .finally(() => {
                 setLoading(false)
             })
-    }, [categoryId])
+    }, [])
 
     return (
         <div className="itemListContainer">
-            <h2 className="title">Nuestro catálogo de productos</h2>
+            <h2 className="title">Característica del producto</h2>
+
             <section>
                 {
                     loading
@@ -40,12 +40,10 @@ export const ItemListContainer = () => {
                             <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             Cargando...
                         </button>
-                        : 
-                            <div className="containerList">
-                                <ItemList items={items} />
-                            </div>
+                        : <ItemDetail item={item} />
                 }
             </section>
         </div>
+
     )
 }
