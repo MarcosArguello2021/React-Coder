@@ -5,16 +5,17 @@ import { configBtns } from "./configBtns"
 import './ItemCount.scss';
 
 
-export const ItemCount = ({ max = 12, min = 0}) => {
-    const [contador, setContador] = useState(0)
+export const ItemCount = ({ max, min=1, setContador, contador, handleAgregar}) => {
+    
 
     const incrementar = (e) => {
         contador < max && setContador(contador + 1);
     }
 
     const decrementar = () => {
-        contador > min && setContador(contador - 1);
+        contador > 1 && setContador(contador - 1);
     }
+    
 
     const { configRestar, configSumar } = configBtns(contador, max, min, decrementar, incrementar)
 
@@ -30,7 +31,7 @@ export const ItemCount = ({ max = 12, min = 0}) => {
                         <BsPlusLg />
                     </button>
                 </div>
-                <button type="button" className="btn btn-outline-light">Agregar</button>
+                <button type="button" onClick={handleAgregar} className="btn btn-outline-light">Agregar</button>
             </div>
 
         </section>

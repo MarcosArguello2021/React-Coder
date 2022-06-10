@@ -36,7 +36,7 @@ export const ItemDetailsContainer = () => {
                 {
                     loading
                         ?
-                        <button className="btn btn-primary" type="button" disabled>
+                        <button className="btn btn-warning btn-lg btn-block" type="button" disabled>
                             <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             Cargando...
                         </button>

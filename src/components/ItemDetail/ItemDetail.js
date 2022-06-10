@@ -1,14 +1,24 @@
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
 import { ItemCount } from '../ItemCount/ItemCount'
 import './ItemDetail.scss'
 
 const ItemDetail = ({ item }) => {
-
+    
+    const [contador, setContador] = useState(1)
     const navigate = useNavigate()
 
     const handleVolver = () => {
         navigate(-1)
     }
+
+    const handleAgregar = ()=>{
+        const itemToCart = {
+            ...item,
+            contador
+        }
+        console.log(itemToCart)
+       }
 
     return (
         <div className="container mt-2 mb-5 item">
@@ -30,7 +40,9 @@ const ItemDetail = ({ item }) => {
                                         </div>
                                     </div>
                                     <p className="about">{item.desc}</p>
-                                    <div className="cart mt-4 align-items-center"><ItemCount /></div>
+                                    <div className="cart mt-4 align-items-center">
+                                        <ItemCount max={(item.cantidad)} contador={(contador)} setContador={(setContador)} handleAgregar={(handleAgregar)}/>
+                                        </div>
                                     <div className="d-flex justify-content-between align-items-center">
                                         <button className="btn btn-secondary" onClick={handleVolver}>VOLVER</button>
                                     </div>
