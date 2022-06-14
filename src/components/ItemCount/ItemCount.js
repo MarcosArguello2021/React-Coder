@@ -8,7 +8,7 @@ import './ItemCount.scss';
 export const ItemCount = ({ max, min=1, setContador, contador, handleAgregar}) => {
     
 
-    const incrementar = (e) => {
+    const incrementar = () => {
         contador < max && setContador(contador + 1);
     }
 

@@ -1,12 +1,18 @@
 import './CartWidget.scss';
+import { Link } from 'react-router-dom'
 import { BsFillCartCheckFill } from "react-icons/bs";
+import { useCartContext } from '../../context/CartContext';
 
-export const CartWidget = () => {
+const CartWidget = () => {
+
+  const {totalQuantity} = useCartContext()
+  console.log(totalQuantity)
 
   return (
-    <div className="cart-widget">
+    <Link to="/cart" className="cart-widget">
       <BsFillCartCheckFill />
-      <div className="qty-display">0</div>
-    </div>
+      <div className="qty-display">{totalQuantity()}</div>
+    </Link>
   );
-};
+}
+export default CartWidget
