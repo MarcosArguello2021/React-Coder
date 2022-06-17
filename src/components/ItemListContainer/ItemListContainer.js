@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { pedirDatos } from '../../mock/pedirDatos'
 import { useParams } from 'react-router-dom'
 import ItemList from "../ItemList/ItemList"
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import './ItemListContainer.scss'
+import { db } from '../../firebase/firebase'
 
 export const ItemListContainer = () => {
 
@@ -13,20 +14,37 @@ export const ItemListContainer = () => {
     useEffect(() => {
         setLoading(true)
 
-        pedirDatos()
+        const productosRef = collection(db, "productos")
+        const q = categoryId ? query(productosRef, where("variedad", "==", categoryId)) : productosRef
+        getDocs(q)
             .then((resp) => {
-                if (!categoryId) {
-                    setItems(resp)
-                } else {
-                    setItems(resp.filter((item) => item.variedad === categoryId))
-                }
-            })
-            .catch((error) => {
-                console.log("Error", error)
+                const newItems = resp.docs.map((doc) => {
+                    return {
+                        id: doc.id,
+                        ...doc.data()
+                    }
+                })
+                console.log(newItems)
+                setItems(newItems)
             })
             .finally(() => {
                 setLoading(false)
             })
+
+        // pedirDatos()
+        //     .then((resp) => {
+        //         if (!categoryId) {
+        //             setItems(resp)
+        //         } else {
+        //             setItems(resp.filter((item) => item.variedad === categoryId))
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         console.log("Error", error)
+        //     })
+        //     .finally(() => {
+        //         setLoading(false)
+        //     })
     }, [categoryId])
 
     return (
@@ -40,10 +58,10 @@ export const ItemListContainer = () => {
                             <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             Cargando...
                         </button>
-                        : 
-                            <div className="containerList">
-                                <ItemList items={items} />
-                            </div>
+                        :
+                        <div className="containerList">
+                            <ItemList items={items} />
+                        </div>
                 }
             </section>
         </div>

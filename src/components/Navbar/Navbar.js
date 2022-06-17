@@ -36,7 +36,7 @@ export const Navbar = () => {
                             <Link to={"/contacto"} className="nav-link">Contáctenos</Link>
                         </li>
                     </ul>
-                    <div className="d-flex">
+                    <div className="nav-item">
                         <CartWidget/>
                     </div>
                     <form className="d-flex">

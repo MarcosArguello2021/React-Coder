@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { pedirDatos } from '../../mock/pedirDatos'
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "../../firebase/firebase"
 import { useParams } from 'react-router-dom'
 import ItemDetail from "../ItemDetail/ItemDetail"
 import './ItemDetailsContainer.scss'
@@ -9,25 +10,24 @@ export const ItemDetailsContainer = () => {
 
     const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(true)
-
     const { itemId } = useParams()
 
     useEffect(() => {
         setLoading(true)
-
-        pedirDatos()
-            .then((resp) => {
-                setItem( resp.find((item) => item.id === Number(itemId)) )
-            })
-
-            .catch((error) => {
-                console.log("Error", error)
+        
+        const docRef = doc(db, "productos", itemId)
+        
+        getDoc(docRef)
+            .then((doc) => {
+                setItem( {id: doc.id, ...doc.data()} )
             })
             .finally(() => {
                 setLoading(false)
             })
-    }, [])
 
+    }, [])
+    console.log(item)
+    
     return (
         <div className="itemListContainer">
             <h2 className="title">Característica del producto</h2>
