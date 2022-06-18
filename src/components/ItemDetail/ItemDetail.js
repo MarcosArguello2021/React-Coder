@@ -1,15 +1,13 @@
 import { useNavigate, Link } from "react-router-dom"
 import { useState, useContext, useEffect } from "react"
 import { ItemCount } from '../ItemCount/ItemCount'
-import './ItemDetail.scss'
 import { CartContext } from "../../context/CartContext"
+import './ItemDetail.scss'
 
 const ItemDetail = ({ item }) => {
 
     const { addItem, isInCart } = useContext(CartContext)
-
     const [contador, setContador] = useState(1)
-
     const navigate = useNavigate()
 
     const handleVolver = () => {

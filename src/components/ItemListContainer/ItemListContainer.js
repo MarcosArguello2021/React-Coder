@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import ItemList from "../ItemList/ItemList"
 import { collection, getDocs, query, where } from 'firebase/firestore'
-import './ItemListContainer.scss'
 import { db } from '../../firebase/firebase'
+import ItemList from "../ItemList/ItemList"
+import './ItemListContainer.scss'
 
 export const ItemListContainer = () => {
 
@@ -31,20 +31,6 @@ export const ItemListContainer = () => {
                 setLoading(false)
             })
 
-        // pedirDatos()
-        //     .then((resp) => {
-        //         if (!categoryId) {
-        //             setItems(resp)
-        //         } else {
-        //             setItems(resp.filter((item) => item.variedad === categoryId))
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.log("Error", error)
-        //     })
-        //     .finally(() => {
-        //         setLoading(false)
-        //     })
     }, [categoryId])
 
     return (

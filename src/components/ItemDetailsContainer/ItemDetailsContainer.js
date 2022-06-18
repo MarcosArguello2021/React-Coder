@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom'
 import ItemDetail from "../ItemDetail/ItemDetail"
 import './ItemDetailsContainer.scss'
 
-
 export const ItemDetailsContainer = () => {
 
     const [item, setItem] = useState(null)
