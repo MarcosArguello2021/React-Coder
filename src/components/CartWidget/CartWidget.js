@@ -9,7 +9,7 @@ const CartWidget = () => {
   console.log(totalQuantity)
 
   return (
-    <Link to="/cart" className="cart-widget">
+    <Link to="/cart" className={`cart-widget ${totalQuantity() === 0 ? 'widget-hidden' :' '}`}>
       <BsFillCartCheckFill />
       <div className="qty-display">{totalQuantity()}</div>
     </Link>

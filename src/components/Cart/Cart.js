@@ -1,9 +1,11 @@
 import { useCartContext } from "../../context/CartContext"
 import { BsFillTrashFill } from "react-icons/bs"
+import EmptyCart from "./EmptyCart"
 
 const Cart = () => {
 
     const {cart, totalPrice, emptyCart, removeItem} = useCartContext()
+    if (cart.length === 0) return <EmptyCart/>
     return (
         <div className="container my-5">
             <h2>Tu compra</h2>

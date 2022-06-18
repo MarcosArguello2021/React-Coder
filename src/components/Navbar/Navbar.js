@@ -24,9 +24,11 @@ export const Navbar = () => {
                                 Produtos
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><Link to={"/categoria/ESPUMANTES"} className="dropdown-item">Espumantes</Link></li>
                                 <li><Link to={"/categoria/BLANCOS"} className="dropdown-item" >Blancos</Link></li>
                                 <li><Link to={"/categoria/BLEND"} className="dropdown-item" >Blend</Link></li>
+                                <li><Link to={"/categoria/ESPUMANTES"} className="dropdown-item">Espumantes</Link></li>
+                                <li><Link to={"/categoria/ORGANICOS"} className="dropdown-item">Orgánicos</Link></li>
+                                <li><Link to={"/categoria/TINTOS"} className="dropdown-item">Tintos</Link></li>
                             </ul>
                         </li>
                         <li className="nav-item">
@@ -37,7 +39,7 @@ export const Navbar = () => {
                         </li>
                     </ul>
                     <div className="nav-item">
-                        <CartWidget/>
+                        <CartWidget />
                     </div>
                     <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />

@@ -5,7 +5,10 @@
     font-size: 2rem;
     color: #c5aa6a;
     padding-right: 2rem;
-  .qty-display {
+    :hover {
+      color: #c49830 !important;
+  }
+    .qty-display {
     display: inline-block;
     width: 18px;
     height: 18px;
@@ -15,5 +18,12 @@
     position: absolute;
     text-align: center;
     line-height: 17px;
+    :hover {
+      color: #c49830 !important;
+    }
   }
+}
+.widget-hidden {
+  visibility: hidden;
+  opacity: 0;
 }
