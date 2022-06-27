@@ -6,7 +6,6 @@ import { useCartContext } from '../../context/CartContext';
 const CartWidget = () => {
 
   const {totalQuantity} = useCartContext()
-  console.log(totalQuantity)
 
   return (
     <Link to="/cart" className={`cart-widget ${totalQuantity() === 0 ? 'widget-hidden' :' '}`}>

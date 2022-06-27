@@ -23,7 +23,7 @@ const ItemDetail = ({ item }) => {
     }
 
             return (
-            <div className="container mt-2 mb-5 item ">
+            <div className="container mt-2 mb-5 item border border-3 border-warning rounded">
                 <div className="row d-flex justify-content-center">
                     <div className="col-md-10">
                         <div className="card">
@@ -62,7 +62,7 @@ const ItemDetail = ({ item }) => {
                         </div>
                     </div>
                 </div>
-                <div className="d-flex">
+                <div className="d-flex justify-content-center mt-3">
                     <button className="btn btn-secondary" onClick={handleVolver}>VOLVER</button>
                 </div>
             </div>

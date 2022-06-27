@@ -1,0 +1,14 @@
+.cart{
+    .img-responsive{
+        width: 100%;
+    }
+    .compra{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .items{
+        background-color: #ffffff ;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    }
+}

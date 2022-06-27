@@ -1,0 +1,16 @@
+.footer{
+
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, #4c3c3c, #5f4c4c);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+    .widget-copyright {
+        color: rgba(255,255,255,.55);
+        text-align: center;
+      }
+
+    a{
+        color: #ffc107;
+        border-color: #ffc107;
+        text-decoration: none;
+    }
+}

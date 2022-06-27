@@ -25,7 +25,6 @@ export const ItemDetailsContainer = () => {
             })
 
     }, [])
-    console.log(item)
     
     return (
         <div className="itemListContainer">
