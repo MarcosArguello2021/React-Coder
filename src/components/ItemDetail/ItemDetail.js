@@ -1,5 +1,5 @@
 import { useNavigate, Link } from "react-router-dom"
-import { useState, useContext, useEffect } from "react"
+import { useState, useContext } from "react"
 import { ItemCount } from '../ItemCount/ItemCount'
 import { CartContext } from "../../context/CartContext"
 import './ItemDetail.scss'
@@ -22,7 +22,17 @@ const ItemDetail = ({ item }) => {
         addItem(itemToCart)
     }
 
-            return (
+    return (
+        item.nombre == null ?
+            (<div>
+                <div className="my-3">
+                    <h3>NO EXISTE EL  PRODUCTO QUE ESTÁ BUSCANDO</h3>
+                </div>
+                <div className="d-flex justify-content-center mt-3">
+                    <button className="btn btn-secondary" onClick={handleVolver}>VOLVER</button>
+                </div>
+            </div>
+            ) :
             <div className="container mt-2 mb-5 item border border-3 border-warning rounded">
                 <div className="row d-flex justify-content-center">
                     <div className="col-md-10">
@@ -55,7 +65,6 @@ const ItemDetail = ({ item }) => {
                                                     handleAgregar={handleAgregar}
                                                 />
                                         }
-
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +76,7 @@ const ItemDetail = ({ item }) => {
                 </div>
             </div>
 
-        )
-    }
+    )
+}
 
 export default ItemDetail

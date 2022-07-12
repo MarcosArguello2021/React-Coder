@@ -1,11 +1,10 @@
-import { useState } from "react"
 import { BsPlusLg } from "react-icons/bs";
 import { BsDashLg } from "react-icons/bs";
 import { configBtns } from "./configBtns"
 import './ItemCount.scss';
 
 
-export const ItemCount = ({ max, min=1, setContador, contador, handleAgregar}) => {
+export const ItemCount = ({ max, min, setContador, contador, handleAgregar}) => {
     
 
     const incrementar = () => {
@@ -20,6 +19,10 @@ export const ItemCount = ({ max, min=1, setContador, contador, handleAgregar}) =
     const { configRestar, configSumar } = configBtns(contador, max, min, decrementar, incrementar)
 
     return (
+        max === 0 
+        ?  
+        <div className="p-3 mb-2 bg-danger text-white">NO HAY STOCK DE ESTE PRODUCTO</div> 
+        :
         <section>
             <div className="contador container my-4 d-flex">
                 <div>
@@ -33,7 +36,6 @@ export const ItemCount = ({ max, min=1, setContador, contador, handleAgregar}) =
                 </div>
                 <button type="button" onClick={handleAgregar} className="btn btn-outline-light">Agregar</button>
             </div>
-
         </section>
     )
 };

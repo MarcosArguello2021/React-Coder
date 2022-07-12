@@ -7,8 +7,9 @@ import './Cart.scss'
 const Cart = () => {
 
     const { cart, totalPrice, emptyCart, removeItem } = useCartContext()
+    
     if (cart.length === 0) return <EmptyCart />
-    return (
+    return ( 
         <div className="container my-2 cart">
             <div className="compra">
                 <h2>CARRITO DE COMPRAS</h2>
@@ -19,7 +20,7 @@ const Cart = () => {
                     <div key={item.id} className="row justify-content-between align-items-center my-2 items">
                       
                         <div className="col-2">
-                            <img src={item.img} className="img-responsive" />
+                            <img src={item.img} className="img-responsive" alt="producto"/>
                         </div>
                         <div className="col-3">
                             <h5>{item.nombre}</h5>

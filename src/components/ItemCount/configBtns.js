@@ -1,4 +1,5 @@
-export const configBtns = (contador, max, min, restar, sumar) => {
+export const configBtns = (contador, max, min=1, restar, sumar) => {
+    
     const configRestar = {
         className: `btn ${contador === min ? 'btn-outline-danger' : 'btn-outline-primary '}`,
         disabled: contador === min,
@@ -13,3 +14,4 @@ export const configBtns = (contador, max, min, restar, sumar) => {
 
     return {configRestar, configSumar}
 }
+

@@ -1,33 +1,15 @@
-import { useEffect, useState } from 'react'
-import { doc, getDoc } from "firebase/firestore"
-import { db } from "../../firebase/firebase"
-import { useParams } from 'react-router-dom'
+
 import ItemDetail from "../ItemDetail/ItemDetail"
 import './ItemDetailsContainer.scss'
+import { useDetalles } from "./useDetalles"
+
 
 export const ItemDetailsContainer = () => {
 
-    const [item, setItem] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const { itemId } = useParams()
-
-    useEffect(() => {
-        setLoading(true)
-        
-        const docRef = doc(db, "productos", itemId)
-        
-        getDoc(docRef)
-            .then((doc) => {
-                setItem( {id: doc.id, ...doc.data()} )
-            })
-            .finally(() => {
-                setLoading(false)
-            })
-
-    }, [])
+    const { item, loading } = useDetalles()
     
     return (
-        <div className="itemListContainer">
+        <div className="itemListContainer p-4">
             <h2 className="title">Característica del producto</h2>
 
             <section>

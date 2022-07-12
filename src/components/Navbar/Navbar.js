@@ -7,7 +7,7 @@ export const Navbar = () => {
     return <header>
         <nav className="navbar navbar-expand-lg navbar-dark bgColors">
             <div className="container-fluid">
-                <Link to={"/"} className="nav navbar-brand">e-Commerce</Link>
+                <Link to={"/"} className="nav navbar-brand">e-Commerce: Vineria</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -21,30 +21,20 @@ export const Navbar = () => {
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Produtos
+                                Variedades
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><Link to={"/categoria/BLANCOS"} className="dropdown-item" >Blancos</Link></li>
-                                <li><Link to={"/categoria/BLEND"} className="dropdown-item" >Blend</Link></li>
-                                <li><Link to={"/categoria/ESPUMANTES"} className="dropdown-item">Espumantes</Link></li>
-                                <li><Link to={"/categoria/ORGANICOS"} className="dropdown-item">Orgánicos</Link></li>
-                                <li><Link to={"/categoria/TINTOS"} className="dropdown-item">Tintos</Link></li>
+                                <li><Link to={"/categoria/BLANCOS"} className="dropdown-item" >BLANCOS</Link></li>
+                                <li><Link to={"/categoria/BLEND"} className="dropdown-item" >BLEND</Link></li>
+                                <li><Link to={"/categoria/ESPUMANTES"} className="dropdown-item">ESPUMANTES</Link></li>
+                                <li><Link to={"/categoria/ORGANICOS"} className="dropdown-item">ORGÁNICOS</Link></li>
+                                <li><Link to={"/categoria/TINTOS"} className="dropdown-item">TINTOS</Link></li>
                             </ul>
-                        </li>
-                        <li className="nav-item">
-                            <Link to={"/nosotros"} className="nav-link">Nosotros</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to={"/contacto"} className="nav-link">Contáctenos</Link>
                         </li>
                     </ul>
                     <div className="nav-item">
                         <CartWidget />
                     </div>
-                    <form className="d-flex">
-                        <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
-                        <button className="btn btn-outline-warning" type="submit">Buscar</button>
-                    </form>
                 </div>
             </div>
         </nav>

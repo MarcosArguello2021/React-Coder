@@ -1,39 +1,13 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { collection, getDocs, query, where } from 'firebase/firestore'
-import { db } from '../../firebase/firebase'
 import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.scss'
+import { useProductos } from './useProductos'
 
 export const ItemListContainer = () => {
-
-    const [items, setItems] = useState([])
-    const [loading, setLoading] = useState(true)
-    const { categoryId } = useParams()
-
-    useEffect(() => {
-        setLoading(true)
-
-        const productosRef = collection(db, "productos")
-        const q = categoryId ? query(productosRef, where("variedad", "==", categoryId)) : productosRef
-        getDocs(q)
-            .then((resp) => {
-                const newItems = resp.docs.map((doc) => {
-                    return {
-                        id: doc.id,
-                        ...doc.data()
-                    }
-                })
-                setItems(newItems)
-            })
-            .finally(() => {
-                setLoading(false)
-            })
-
-    }, [categoryId])
-
+   
+    const { items, loading } = useProductos()
+    
     return (
-        <div className="itemListContainer">
+        <div className="itemListContainer p-4">
             <h2 className="title">Nuestro catálogo de productos</h2>
             <section>
                 {
